@@ -39,7 +39,7 @@ struct ContentView: View {
                 
                 Text("About Turtle Rock")
                     .font(.title2)
-                Text("Turle Rock has lots of turtles...or does it?")
+                Text("Turle Rock has lots of turtles")
             }
             .padding()
             
