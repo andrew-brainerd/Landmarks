@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct LandmarkList: View {
+    @State private var _landmarks = [Landmark]()
+
     var body: some View {
         NavigationView {
-            List(landmarks) { landmark in
+            List(_landmarks) { landmark in
                 NavigationLink {
                     LandmarkDetail(landmark: landmark)
                 } label: {
@@ -18,6 +20,9 @@ struct LandmarkList: View {
                 }
             }
             .navigationTitle("Landmarks")
+        }
+        .task {
+            _landmarks = await loadFromApi()
         }
     }
 }
