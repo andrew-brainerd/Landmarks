@@ -8,21 +8,27 @@
 import SwiftUI
 
 struct LandmarkList: View {
+    @State private var isLoadingLandmarks = true
     @State private var _landmarks = [Landmark]()
 
     var body: some View {
         NavigationView {
-            List(_landmarks) { landmark in
-                NavigationLink {
-                    LandmarkDetail(landmark: landmark)
-                } label: {
-                    LandmarkRow(landmark: landmark)
+            if (isLoadingLandmarks == true) {
+                Text("Loading landmarks...")
+            } else {
+                List(_landmarks) { landmark in
+                    NavigationLink {
+                        LandmarkDetail(landmark: landmark)
+                    } label: {
+                        LandmarkRow(landmark: landmark)
+                    }
                 }
+                .navigationTitle("Landmarks")
             }
-            .navigationTitle("Landmarks")
         }
         .task {
             _landmarks = await loadFromApi()
+            isLoadingLandmarks = false
         }
     }
 }
