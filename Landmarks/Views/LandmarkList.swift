@@ -13,8 +13,11 @@ struct LandmarkList: View {
 
     var body: some View {
         NavigationView {
-            if (isLoadingLandmarks == true) {
-                Text("Loading landmarks...")
+            if (isLoadingLandmarks) {
+                VStack {
+                    Text("Loading landmarks...")
+                    LottieView()
+                }
             } else {
                 List(_landmarks) { landmark in
                     NavigationLink {
