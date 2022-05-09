@@ -27,6 +27,9 @@ struct LandmarkList: View {
                     }
                 }
                 .navigationTitle("Landmarks")
+                .refreshable {
+                    _landmarks = await loadFromApi()
+                }
             }
         }
         .task {

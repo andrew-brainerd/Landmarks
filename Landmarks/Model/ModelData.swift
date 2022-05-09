@@ -18,7 +18,6 @@ struct Result: Codable {
 }
 
 var localLandmarks: [Landmark] = load("landmarkData.json")
-var landmarks: [Landmark] = []
 
 func loadFromApi() async -> [Landmark] {
     guard let url = URL(string: "http://10.0.0.41:5000/api/landmarks")
