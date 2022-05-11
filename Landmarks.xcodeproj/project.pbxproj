@@ -12,6 +12,7 @@
 		A12D06172828744000C4B011 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = A12D06162828744000C4B011 /* Lottie */; };
 		A12D061B2828752600C4B011 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12D061A2828752600C4B011 /* LottieView.swift */; };
 		A12D061E28288CA300C4B011 /* home.json in Resources */ = {isa = PBXBuildFile; fileRef = A12D061D28288CA300C4B011 /* home.json */; };
+		A13522B1282C6ACB008E8E93 /* loadingSquares.json in Resources */ = {isa = PBXBuildFile; fileRef = A13522B0282C6ACB008E8E93 /* loadingSquares.json */; };
 		A152319B282B4DF200A31645 /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = A152319A282B4DF200A31645 /* Property.swift */; };
 		A15231A3282B7CBE00A31645 /* PropertyDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15231A0282B7CBE00A31645 /* PropertyDetail.swift */; };
 		A15231A4282B7CBE00A31645 /* PropertyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15231A1282B7CBE00A31645 /* PropertyList.swift */; };
@@ -56,6 +57,7 @@
 		8AF903751345D81BC104AE2F /* Pods_LandmarksTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LandmarksTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A12D061A2828752600C4B011 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		A12D061D28288CA300C4B011 /* home.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = home.json; sourceTree = "<group>"; };
+		A13522B0282C6ACB008E8E93 /* loadingSquares.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loadingSquares.json; sourceTree = "<group>"; };
 		A1523198282B454200A31645 /* Landmarks.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Landmarks.entitlements; sourceTree = "<group>"; };
 		A152319A282B4DF200A31645 /* Property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
 		A15231A0282B7CBE00A31645 /* PropertyDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyDetail.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				A12D061D28288CA300C4B011 /* home.json */,
+				A13522B0282C6ACB008E8E93 /* loadingSquares.json */,
 			);
 			path = Lottie;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A12D061E28288CA300C4B011 /* home.json in Resources */,
+				A13522B1282C6ACB008E8E93 /* loadingSquares.json in Resources */,
 				A18CDA3F28276CE6009F203E /* Preview Assets.xcassets in Resources */,
 				A15231A9282B833C00A31645 /* propertyData.json in Resources */,
 				A18CDA3C28276CE6009F203E /* Assets.xcassets in Resources */,

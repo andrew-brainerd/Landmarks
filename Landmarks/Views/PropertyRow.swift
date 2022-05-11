@@ -18,9 +18,10 @@ struct PropertyRow: View {
                     image.resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(maxWidth: 50, maxHeight: 50)
-                        },
+                    },
                 placeholder: {
-                    Text("Loading...")
+                    LottieView()
+                        .frame(maxWidth: 50, maxHeight: 50)
                 }
             )
             Text(property.name)

@@ -25,10 +25,12 @@ struct PropertyDetail: View {
                     AsyncImage(
                         url: URL(string: imageUrl),
                         content: { image in
-                            image.shadow(radius: 7)
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
                         },
                         placeholder: {
-                            Text("Loading image...")
+                            LottieView()
                         }
                     )
                 }

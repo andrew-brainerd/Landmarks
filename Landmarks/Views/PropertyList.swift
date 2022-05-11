@@ -14,7 +14,9 @@ struct PropertyList: View {
     var body: some View {
         NavigationView {
             if (isLoadingLandmarks) {
-                LottieView()
+                LottieView(animationName: "home")
+                    .offset(y: -100)
+                    .padding()
             } else {
                 List(properties) { property in
                     NavigationLink {
