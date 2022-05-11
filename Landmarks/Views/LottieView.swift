@@ -1,6 +1,6 @@
 //
 //  LottieView.swift
-//  Landmarks
+//  Not Toast
 //
 //  Created by Andrew Brainerd on 5/8/22.
 //

@@ -1,14 +1,14 @@
 //
 //  ModelData.swift
-//  Landmarks
+//  Not Toast
 //
 //  Created by Andrew Brainerd on 5/8/22.
 //
 
 import Foundation
 
-struct GetLandmarksResponse: Codable {
-    var landmarks: [Landmark]
+struct GetPropertiesResponse: Codable {
+    var properties: [Property]
 }
 
 struct Result: Codable {
@@ -17,10 +17,10 @@ struct Result: Codable {
     var collectionName: String
 }
 
-var localLandmarks: [Landmark] = load("landmarkData.json")
+var localProperties: [Property] = load("propertyData.json")
 
-func loadFromApi() async -> [Landmark] {
-    guard let url = URL(string: "https://toast-server.herokuapp.com/api/landmarks")
+func fetchProperties() async -> [Property] {
+    guard let url = URL(string: "https://toast-server.herokuapp.com/api/properties")
     else {
         print("Invalid URL")
         return []
@@ -30,8 +30,8 @@ func loadFromApi() async -> [Landmark] {
         let (data, _) = try await URLSession.shared.data(from: url)
         
         do {
-            let decodedResponse = try JSONDecoder().decode(GetLandmarksResponse.self, from: data)
-            return decodedResponse.landmarks
+            let decodedResponse = try JSONDecoder().decode(GetPropertiesResponse.self, from: data)
+            return decodedResponse.properties
         } catch let jsonError as NSError {
             print("JSON decode failed: \(jsonError)")
         }

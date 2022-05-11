@@ -1,20 +1,47 @@
 //
 //  PropertyList.swift
-//  Landmarks
+//  Not Toast
 //
-//  Created by Andrew Brainerd on 5/10/22.
+//  Created by Andrew Brainerd on 5/8/22.
 //
 
 import SwiftUI
 
 struct PropertyList: View {
+    @State private var isLoadingLandmarks = true
+    @State private var properties = [Property]()
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            if (isLoadingLandmarks) {
+                LottieView()
+            } else {
+                List(properties) { property in
+                    NavigationLink {
+                        PropertyDetail(property: property)
+                    } label: {
+                        PropertyRow(property: property)
+                    }
+                }
+                .navigationTitle("Properties")
+                .refreshable {
+                    properties = await fetchProperties()
+                }
+            }
+        }
+        .task {
+            properties = await fetchProperties()
+            isLoadingLandmarks = false
+        }
     }
 }
 
 struct PropertyList_Previews: PreviewProvider {
     static var previews: some View {
-        PropertyList()
+        ForEach(["iPhone SE (2nd generation)", "iPhone XS Max"], id: \.self) { deviceName in
+            PropertyList()
+                .previewDevice(PreviewDevice(rawValue: deviceName))
+                .previewDisplayName(deviceName)
+        }
     }
 }
