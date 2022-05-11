@@ -20,7 +20,7 @@ struct Result: Codable {
 var localLandmarks: [Landmark] = load("landmarkData.json")
 
 func loadFromApi() async -> [Landmark] {
-    guard let url = URL(string: "http://10.0.0.41:5000/api/landmarks")
+    guard let url = URL(string: "https://toast-server.herokuapp.com/api/landmarks")
     else {
         print("Invalid URL")
         return []
