@@ -5,6 +5,7 @@
 //  Created by Andrew Brainerd on 5/8/22.
 //
 
+import Auth0
 import SwiftUI
 
 struct PropertyList: View {
@@ -15,9 +16,16 @@ struct PropertyList: View {
         VStack {
             NavigationView {
                 if isLoadingLandmarks {
-                    LottieView(animationName: "home")
-                        .offset(y: -100)
-                        .padding()
+                    VStack {
+                        if let userName = UserDefaults.standard.string(forKey: "userName") {
+                            let _ = Log.write(message: "User name: \(userName)")
+                            Text("Welcome \(userName)!")
+                        }
+
+                        LottieView(animationName: "home")
+                            .offset(y: -100)
+                            .padding()
+                    }
                 } else {
                     List(properties) { property in
                         NavigationLink {
@@ -40,7 +48,17 @@ struct PropertyList: View {
             if !isLoadingLandmarks {
                 Divider()
                 Button(action: {
-                    UserDefaults.standard.set(false, forKey: "isAuthorized")
+                    Auth0
+                        .webAuth()
+                        .clearSession { result in
+                            switch result {
+                            case .success:
+                                Log.write(message: "Logged out")
+                                UserDefaults.standard.set(false, forKey: "isAuthorized")
+                            case let .failure(error):
+                                Log.write(message: "Failed with: \(error)")
+                            }
+                        }
                 }) {
                     Text("Logout")
                         .font(.title)
