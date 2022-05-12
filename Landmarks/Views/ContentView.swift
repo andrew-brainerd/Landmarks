@@ -16,10 +16,11 @@ struct ContentView: View {
     var body: some View {
         let _ = Log.write(message: "Authorized: \(isAuthorized)")
         if (!isAuthorized) {
-            Button(action: {
+            PurpleButton(text: "Login", action: {
                 Auth0
                     .webAuth()
                     .useEphemeralSession()
+                    .parameters(["prompt": "login"])
                     .start { result in
                         switch result {
                         case .success(let credentials):
@@ -33,13 +34,7 @@ struct ContentView: View {
                         }
                     }
 
-            }) {
-                Text("Login")
-                    .font(.title)
-                    .foregroundColor(.white)
-            }
-            .padding(EdgeInsets(top: 5, leading: 25, bottom: 5, trailing: 25))
-            .background(.purple)
+            })
         } else {
             PropertyList()
         }

@@ -47,26 +47,9 @@ struct PropertyList: View {
 
             if !isLoadingLandmarks {
                 Divider()
-                Button(action: {
-                    Auth0
-                        .webAuth()
-                        .clearSession { result in
-                            switch result {
-                            case .success:
-                                Log.write(message: "Logged out")
-                                UserDefaults.standard.set(false, forKey: "isAuthorized")
-                            case let .failure(error):
-                                Log.write(message: "Failed with: \(error)")
-                            }
-                        }
-                }) {
-                    Text("Logout")
-                        .font(.title)
-                        .foregroundColor(.white)
-                }
-                .padding(EdgeInsets(top: 5, leading: 25, bottom: 5, trailing: 25))
-                .background(.purple)
-                .frame(height: 50)
+                PurpleButton(text: "Logout", action: {
+                    UserDefaults.standard.set(false, forKey: "isAuthorized")
+                })
             }
         }
     }
