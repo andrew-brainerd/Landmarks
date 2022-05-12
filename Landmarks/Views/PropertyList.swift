@@ -12,28 +12,44 @@ struct PropertyList: View {
     @State private var properties = [Property]()
 
     var body: some View {
-        NavigationView {
-            if (isLoadingLandmarks) {
-                LottieView(animationName: "home")
-                    .offset(y: -100)
-                    .padding()
-            } else {
-                List(properties) { property in
-                    NavigationLink {
-                        PropertyDetail(property: property)
-                    } label: {
-                        PropertyRow(property: property)
+        VStack {
+            NavigationView {
+                if isLoadingLandmarks {
+                    LottieView(animationName: "home")
+                        .offset(y: -100)
+                        .padding()
+                } else {
+                    List(properties) { property in
+                        NavigationLink {
+                            PropertyDetail(property: property)
+                        } label: {
+                            PropertyRow(property: property)
+                        }
+                    }
+                    .navigationTitle("Properties")
+                    .refreshable {
+                        properties = await fetchProperties()
                     }
                 }
-                .navigationTitle("Properties")
-                .refreshable {
-                    properties = await fetchProperties()
-                }
             }
-        }
-        .task {
-            properties = await fetchProperties()
-            isLoadingLandmarks = false
+            .task {
+                properties = await fetchProperties()
+                isLoadingLandmarks = false
+            }
+
+            if !isLoadingLandmarks {
+                Divider()
+                Button(action: {
+                    UserDefaults.standard.set(false, forKey: "isAuthorized")
+                }) {
+                    Text("Logout")
+                        .font(.title)
+                        .foregroundColor(.white)
+                }
+                .padding(EdgeInsets(top: 5, leading: 25, bottom: 5, trailing: 25))
+                .background(.purple)
+                .frame(height: 50)
+            }
         }
     }
 }

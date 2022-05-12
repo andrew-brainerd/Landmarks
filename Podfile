@@ -8,6 +8,7 @@ target 'Landmarks' do
   # Pods for Landmarks
 
   pod 'PushNotifications'
+  pod 'Auth0', '~> 2.0'
 
   target 'LandmarksTests' do
     inherit! :search_paths

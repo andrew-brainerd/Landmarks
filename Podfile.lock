@@ -1,16 +1,28 @@
 PODS:
+  - Auth0 (2.0.1):
+    - JWTDecode (~> 2.0)
+    - SimpleKeychain
+  - JWTDecode (2.6.3)
   - PushNotifications (4.0.0)
+  - SimpleKeychain (0.12.5)
 
 DEPENDENCIES:
+  - Auth0 (~> 2.0)
   - PushNotifications
 
 SPEC REPOS:
   trunk:
+    - Auth0
+    - JWTDecode
     - PushNotifications
+    - SimpleKeychain
 
 SPEC CHECKSUMS:
+  Auth0: 8c19dbd6aea8770cad495907f5e75ddb3aa93fb7
+  JWTDecode: 33e5e26e5ddbd21b2065820894c08fef0cad9509
   PushNotifications: 2b2174b28bf48b1fe552686d1f95c53d62a4781d
+  SimpleKeychain: 8193a9e40967eccac933c1fde82de46c07a5ae26
 
-PODFILE CHECKSUM: 044d9ca6861c55b627b3d7494fdc1c587b4a0fb4
+PODFILE CHECKSUM: ebed01dad7726f735c4cebf1d09509bd5f3e5a1b
 
 COCOAPODS: 1.11.3
