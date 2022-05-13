@@ -20,7 +20,22 @@ struct PropertyDetail: View {
                 Text(property.price)
                     .font(.title2)
                     .foregroundColor(.green)
-                
+                Spacer()
+                Button(action: {
+                    guard let urlShare = URL(string: "https://developer.apple.com/xcode/swiftui/") else { return }
+                    let activityVC = UIActivityViewController(activityItems: [urlShare], applicationActivities: nil)
+                    UIApplication.shared.windows.first?.rootViewController?.present(activityVC, animated: true, completion: nil)
+
+                }) {
+                    Image(systemName: "square.and.arrow.up")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 32, height: 32)
+                }
+
+                Spacer()
+                Spacer()
+
                 ForEach(property.images, id: \.self) { imageUrl in
                     AsyncImage(
                         url: URL(string: imageUrl),
