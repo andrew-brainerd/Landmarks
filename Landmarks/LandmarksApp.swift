@@ -29,11 +29,16 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 @main
 struct LandmarksApp: App {
+    @State private var redirectUrl = ""
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(redirectUrl: $redirectUrl)
+                .onOpenURL(perform: { url in
+                    Log.write(message: "Time to handle URL: \(url.path)")
+                    redirectUrl = url.path.components(separatedBy: "/")[1]
+                })
         }
     }
 }

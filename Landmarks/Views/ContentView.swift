@@ -10,11 +10,15 @@ import Auth0
 import JWTDecode
 
 struct ContentView: View {
+    @Binding var redirectUrl: String
+    @State var isLinkHandled = false
+    
     @AppStorage("isAuthorized") var isAuthorized = false
     @AppStorage("userName") var userName: String = "Home Lover"
 
     var body: some View {
         let _ = Log.write(message: "Authorized: \(isAuthorized)")
+        let _ = Log.write(message: "Redirect URL: \(redirectUrl)")
         if (!isAuthorized) {
             PurpleButton(text: "Login", action: {
                 Auth0
@@ -36,14 +40,18 @@ struct ContentView: View {
 
             })
         } else {
-            PropertyList()
+            if redirectUrl.isEmpty  {
+                PropertyList()
+            } else {
+                PropertyDetail(propertyId: redirectUrl)
+            }
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(redirectUrl: .constant(""))
             .preferredColorScheme(.dark)
     }
 }

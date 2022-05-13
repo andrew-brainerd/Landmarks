@@ -11,16 +11,16 @@ struct GetPropertiesResponse: Codable {
     var properties: [Property]
 }
 
-struct Result: Codable {
-    var trackId: Int
-    var trackName: String
-    var collectionName: String
+struct GetPropertyResponse: Codable {
+    var property: Property
 }
 
 var localProperties: [Property] = load("propertyData.json")
 
+var apiBaseUrl = "https://toast-server.herokuapp.com"
+
 func fetchProperties() async -> [Property] {
-    guard let url = URL(string: "https://toast-server.herokuapp.com/api/properties")
+    guard let url = URL(string: "\(apiBaseUrl)/api/properties")
     else {
         print("Invalid URL")
         return []
@@ -40,6 +40,29 @@ func fetchProperties() async -> [Property] {
     }
     
     return []
+}
+
+func fetchProperty(propertyId: String) async -> Property? {
+    guard let url = URL(string: "\(apiBaseUrl)/api/properties/\(propertyId)")
+    else {
+        print("Invalid URL")
+        return nil
+    }
+    
+    do {
+        let (data, _) = try await URLSession.shared.data(from: url)
+        
+        do {
+            let decodedResponse = try JSONDecoder().decode(GetPropertyResponse.self, from: data)
+            return decodedResponse.property
+        } catch let jsonError as NSError {
+            print("JSON decode failed: \(jsonError)")
+        }
+    } catch {
+        print("Invalid data")
+    }
+    
+    return nil
 }
 
 func load<T: Decodable>(_ filename: String) -> T {

@@ -9,13 +9,13 @@ import Auth0
 import SwiftUI
 
 struct PropertyList: View {
-    @State private var isLoadingLandmarks = true
+    @State private var isLoadingProperties = true
     @State private var properties = [Property]()
 
     var body: some View {
         VStack {
             NavigationView {
-                if isLoadingLandmarks {
+                if isLoadingProperties {
                     VStack {
                         if let userName = UserDefaults.standard.string(forKey: "userName") {
                             let _ = Log.write(message: "User name: \(userName)")
@@ -29,7 +29,7 @@ struct PropertyList: View {
                 } else {
                     List(properties) { property in
                         NavigationLink {
-                            PropertyDetail(property: property)
+                            PropertyDetail(propertyId: property.id)
                         } label: {
                             PropertyRow(property: property)
                         }
@@ -42,10 +42,10 @@ struct PropertyList: View {
             }
             .task {
                 properties = await fetchProperties()
-                isLoadingLandmarks = false
+                isLoadingProperties = false
             }
 
-            if !isLoadingLandmarks {
+            if !isLoadingProperties {
                 Divider()
                 PurpleButton(text: "Logout", action: {
                     UserDefaults.standard.set(false, forKey: "isAuthorized")
