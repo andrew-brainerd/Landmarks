@@ -33,6 +33,7 @@
 		A18CDA6228279939009F203E /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18CDA6128279939009F203E /* CircleImage.swift */; };
 		A18CDA662827D86D009F203E /* landmarkData.json in Resources */ = {isa = PBXBuildFile; fileRef = A18CDA652827D86D009F203E /* landmarkData.json */; };
 		A18CDA6A2827E0C2009F203E /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18CDA692827E0C2009F203E /* ModelData.swift */; };
+		A19297942839D3B300BA2958 /* StickyHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19297932839D3B300BA2958 /* StickyHeader.swift */; };
 		E241330BC34700924576FD5E /* Pods_Landmarks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53FEA7E3C3247FFE0AE137C7 /* Pods_Landmarks.framework */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +89,7 @@
 		A18CDA6128279939009F203E /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		A18CDA652827D86D009F203E /* landmarkData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = landmarkData.json; sourceTree = "<group>"; };
 		A18CDA692827E0C2009F203E /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		A19297932839D3B300BA2958 /* StickyHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyHeader.swift; sourceTree = "<group>"; };
 		C30C2E57BB1EB2F355526393 /* Pods_Landmarks_LandmarksUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Landmarks_LandmarksUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3D966BB07E854DDB897B781 /* Pods-LandmarksTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LandmarksTests.release.xcconfig"; path = "Target Support Files/Pods-LandmarksTests/Pods-LandmarksTests.release.xcconfig"; sourceTree = "<group>"; };
 		EEE6DCE20213434E4729C61B /* Pods-Landmarks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Landmarks.release.xcconfig"; path = "Target Support Files/Pods-Landmarks/Pods-Landmarks.release.xcconfig"; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 				A11EE469282D52E000D3CBA1 /* PurpleButton.swift */,
 				A1710EF62862A63B0005462D /* CardView.swift */,
 				A141CDCF2869310100B2DE65 /* CardStack.swift */,
+				A19297932839D3B300BA2958 /* StickyHeader.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -520,6 +523,7 @@
 				A18CDA6228279939009F203E /* CircleImage.swift in Sources */,
 				A141CDD02869310100B2DE65 /* CardStack.swift in Sources */,
 				A12D061B2828752600C4B011 /* LottieView.swift in Sources */,
+				A19297942839D3B300BA2958 /* StickyHeader.swift in Sources */,
 				A15231A3282B7CBE00A31645 /* PropertyDetail.swift in Sources */,
 				A1710EF72862A63B0005462D /* CardView.swift in Sources */,
 				A18CDA6A2827E0C2009F203E /* ModelData.swift in Sources */,

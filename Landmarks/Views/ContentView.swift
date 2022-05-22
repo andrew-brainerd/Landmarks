@@ -5,21 +5,19 @@
 //  Created by Andrew Brainerd on 5/7/22.
 //
 
-import SwiftUI
 import Auth0
 import JWTDecode
+import SwiftUI
 
 struct ContentView: View {
     @Binding var redirectUrl: String
     @State var isLinkHandled = false
-    
+
     @AppStorage("isAuthorized") var isAuthorized = false
     @AppStorage("userName") var userName: String = "Home Lover"
 
     var body: some View {
-        let _ = Log.write(message: "Authorized: \(isAuthorized)")
-        let _ = Log.write(message: "Redirect URL: \(redirectUrl)")
-        if (!isAuthorized) {
+        if !isAuthorized {
             PurpleButton(text: "Login", action: {
                 Auth0
                     .webAuth()
@@ -40,10 +38,10 @@ struct ContentView: View {
 
             })
         } else {
-            if redirectUrl.isEmpty  {
+            if redirectUrl.isEmpty {
                 PropertyList()
             } else {
-                PropertyDetail(propertyId: redirectUrl)
+                PropertyDetail(propertyId: redirectUrl, shouldShowBackButton: true)
             }
         }
     }

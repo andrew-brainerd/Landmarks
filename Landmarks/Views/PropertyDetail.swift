@@ -13,14 +13,31 @@ struct PropertyDetail: View {
     @State private var isLoadingPropertyDetails = true
     @State private var property: Property = defaultProperty
     @State public var propertyId: String
+    @State private var isShowingPropertyList: Bool = false
+    @State public var shouldShowBackButton: Bool = false
 
     var body: some View {
         if isLoadingPropertyDetails {
             LottieView()
         }
-        ScrollView {
-            if !isLoadingPropertyDetails {
-                VStack() {
+        ScrollView(.vertical, showsIndicators: false) {
+            if shouldShowBackButton && !isShowingPropertyList {
+                StickyHeader {
+                    NavigationView {
+                        ZStack {
+                            VStack {
+                                NavigationLink(destination: PropertyList(), isActive: $isShowingPropertyList) { EmptyView() }
+                                Button("X") {
+                                    isShowingPropertyList = true
+                                }
+                                .buttonStyle(.bordered)
+                            }
+                        }
+                    }
+                }
+            }
+            if !isLoadingPropertyDetails && !isShowingPropertyList {
+                VStack {
                     Text("\(property.street) \(property.city)")
                         .font(.subheadline)
                         .foregroundColor(.gray)
