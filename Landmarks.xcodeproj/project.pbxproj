@@ -16,11 +16,13 @@
 		A12D061B2828752600C4B011 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12D061A2828752600C4B011 /* LottieView.swift */; };
 		A12D061E28288CA300C4B011 /* home.json in Resources */ = {isa = PBXBuildFile; fileRef = A12D061D28288CA300C4B011 /* home.json */; };
 		A13522B1282C6ACB008E8E93 /* loadingSquares.json in Resources */ = {isa = PBXBuildFile; fileRef = A13522B0282C6ACB008E8E93 /* loadingSquares.json */; };
+		A141CDD02869310100B2DE65 /* CardStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A141CDCF2869310100B2DE65 /* CardStack.swift */; };
 		A152319B282B4DF200A31645 /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = A152319A282B4DF200A31645 /* Property.swift */; };
 		A15231A3282B7CBE00A31645 /* PropertyDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15231A0282B7CBE00A31645 /* PropertyDetail.swift */; };
 		A15231A4282B7CBE00A31645 /* PropertyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15231A1282B7CBE00A31645 /* PropertyList.swift */; };
 		A15231A5282B7CBE00A31645 /* PropertyRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15231A2282B7CBE00A31645 /* PropertyRow.swift */; };
 		A15231A9282B833C00A31645 /* propertyData.json in Resources */ = {isa = PBXBuildFile; fileRef = A15231A8282B833C00A31645 /* propertyData.json */; };
+		A1710EF72862A63B0005462D /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1710EF62862A63B0005462D /* CardView.swift */; };
 		A18CDA3828276CE4009F203E /* LandmarksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18CDA3728276CE4009F203E /* LandmarksApp.swift */; };
 		A18CDA3A28276CE4009F203E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18CDA3928276CE4009F203E /* ContentView.swift */; };
 		A18CDA3C28276CE6009F203E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A18CDA3B28276CE6009F203E /* Assets.xcassets */; };
@@ -65,12 +67,14 @@
 		A12D061A2828752600C4B011 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		A12D061D28288CA300C4B011 /* home.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = home.json; sourceTree = "<group>"; };
 		A13522B0282C6ACB008E8E93 /* loadingSquares.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loadingSquares.json; sourceTree = "<group>"; };
+		A141CDCF2869310100B2DE65 /* CardStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStack.swift; sourceTree = "<group>"; };
 		A1523198282B454200A31645 /* Landmarks.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Landmarks.entitlements; sourceTree = "<group>"; };
 		A152319A282B4DF200A31645 /* Property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
 		A15231A0282B7CBE00A31645 /* PropertyDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyDetail.swift; sourceTree = "<group>"; };
 		A15231A1282B7CBE00A31645 /* PropertyList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyList.swift; sourceTree = "<group>"; };
 		A15231A2282B7CBE00A31645 /* PropertyRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyRow.swift; sourceTree = "<group>"; };
 		A15231A8282B833C00A31645 /* propertyData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = propertyData.json; sourceTree = "<group>"; };
+		A1710EF62862A63B0005462D /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		A18CDA3428276CE4009F203E /* Landmarks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Landmarks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A18CDA3728276CE4009F203E /* LandmarksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarksApp.swift; sourceTree = "<group>"; };
 		A18CDA3928276CE4009F203E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -233,6 +237,8 @@
 				A18CDA3928276CE4009F203E /* ContentView.swift */,
 				A12D061A2828752600C4B011 /* LottieView.swift */,
 				A11EE469282D52E000D3CBA1 /* PurpleButton.swift */,
+				A1710EF62862A63B0005462D /* CardView.swift */,
+				A141CDCF2869310100B2DE65 /* CardStack.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -512,8 +518,10 @@
 				A15231A4282B7CBE00A31645 /* PropertyList.swift in Sources */,
 				A11EE46A282D52E000D3CBA1 /* PurpleButton.swift in Sources */,
 				A18CDA6228279939009F203E /* CircleImage.swift in Sources */,
+				A141CDD02869310100B2DE65 /* CardStack.swift in Sources */,
 				A12D061B2828752600C4B011 /* LottieView.swift in Sources */,
 				A15231A3282B7CBE00A31645 /* PropertyDetail.swift in Sources */,
+				A1710EF72862A63B0005462D /* CardView.swift in Sources */,
 				A18CDA6A2827E0C2009F203E /* ModelData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

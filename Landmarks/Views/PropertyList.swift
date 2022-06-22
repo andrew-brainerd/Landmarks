@@ -27,16 +27,26 @@ struct PropertyList: View {
                             .padding()
                     }
                 } else {
-                    List(properties) { property in
-                        NavigationLink {
-                            PropertyDetail(propertyId: property.id)
-                        } label: {
-                            PropertyRow(property: property)
+                    VStack {
+                        List(properties) { property in
+                            NavigationLink {
+                                PropertyDetail(propertyId: property.id)
+                            } label: {
+                                PropertyRow(property: property)
+                            }
                         }
-                    }
-                    .navigationTitle("Properties")
-                    .refreshable {
-                        properties = await fetchProperties()
+                        .navigationTitle("Properties")
+                        .refreshable {
+                            properties = await fetchProperties()
+                        }
+                        Spacer()
+                        NavigationLink {
+                            CardStack()
+                        } label: {
+                            Text("Card View")
+                                .font(.subheadline)
+                                .foregroundColor(.gray)
+                        }
                     }
                 }
             }
