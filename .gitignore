@@ -4,3 +4,7 @@ Landmarks.xcodeproj/xcuserdata/andrewbrainerd.xcuserdatad/xcdebugger/
 Landmarks.xcodeproj/project.xcworkspace/xcuserdata/andrewbrainerd.xcuserdatad/WorkspaceSettings.xcsettings
 
 Pods/
+
+.DS_Store
+
+*.xcuserstate
